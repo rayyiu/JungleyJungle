@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
   def show
-    @order = Order.find(params[:id])
+    @order = Order.includes(:line_items=>[:product]).find(params[:id])
   end
 
   def create
