@@ -36,4 +36,28 @@ RSpec.describe User, type: :model do
     end
   end
 end
+ describe '.authenticate_with_credentials' do 
+  it "should log the user in when given the proper credentials" do 
+   User.create(name: "Nikola Jokic", email: "joke@nuggets.com", password: "password", password_confirmation: "password")
+   @user_login = User.authenticate_with_credentials("joke@nuggets.com", "password")
+   expect(@user_login[:name]).to eq("Nikola Jokic")
+   expect(@user_login[:email]).to eq("joke@nuggets.com")
+  end
+  it "should not login with false credentials" do 
+    @false_user = User.authenticate_with_credentials("123@soulja.boy", "TellEmSoulja")
+    expect(@false_user).to be_nil 
+  end 
+  it "should log a user in with trailing spaces in the email field" do
+    User.create(name: "Nikola Jokic", email: "joke@nuggets.com", password: "password", password_confirmation: "password")
+    @user_login = User.authenticate_with_credentials("   joke@nuggets.com   ", "password")
+    expect(@user_login[:name]).to eq("Nikola Jokic")
+    expect(@user_login[:email]).to eq("joke@nuggets.com")
+  end
+  it "should login a user if the casing in their email is different" do 
+    User.create(name: "Nikola Jokic", email: "joke@nuggets.com", password: "password", password_confirmation: "password")
+    @user_login = User.authenticate_with_credentials("jOkE@nuGgets.com", "password")
+    expect(@user_login[:name]).to eq("Nikola Jokic")
+    expect(@user_login[:email]).to eq("joke@nuggets.com")
+  end 
+ end 
 end
