@@ -1,6 +1,12 @@
 # Jungle
 
-A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
+A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example. Built with Ruby on Rails, tested with rspec. 
+
+## Screenshots 
+!["products page"](https://github.com/rayyiu/JungleyJungle/blob/master/docs%20/productsscreen.png?raw=true)
+!["cart page"](https://github.com/rayyiu/JungleyJungle/blob/master/docs%20/cartscreen.png?raw=true)
+!["credit card payment"](https://github.com/rayyiu/JungleyJungle/blob/master/docs%20/creditcardscreen.png?raw=true)
+!["about page"](https://github.com/rayyiu/JungleyJungle/blob/master/docs%20/aboutpagescreen.png?raw=true)
 
 ## Additional Steps for Apple M1 Machines
 
